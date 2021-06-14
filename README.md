@@ -1,52 +1,27 @@
-# Phase 3 Project
+# Personal Game Library Tracker
 
-## Requirements
+This app here is designed to allow one to keep track of various games that they own, as well as to easily look up any news about those games that they own.
 
-1. Access a Sqlite3 database using Active Record.
-2. You should have a minimum of two models with a one to many relationship.
-3. You should build out a simple **React** frontend to give your user 3 of the 4
-   CRUD abilities for at least one of your resources. For example, build out a
-   todo list. A user should be able to create a new todo, see all todos,
-   update a todo item, and delete a todo. Todos can be grouped into categories,
-   so that a todo has many categories and categories have many todos.
-4. Use good OO design patterns. You should have separate classes for your
-   models.
+I know we were supposed to create 2 seperate repositories, but I thought it would be easier to manage and to submit if they were 2 seperate folders in the same repository.  
 
-## Getting Started
 
-Clone down this repository. A basic Rack app is located in the `backend` folder.
 
-First, cd into the `backend` folder and run `bundle install` in your backend
-folder to install your gems.
+## How to Set-Up
 
-The `app/application.rb` file has an example GET route. Replace this route with
-routes for your project!
+1. Download or fork the Repository to your own device.
+2. Once you have done that, please navigate to the backend folder in one of your terminals and run `bundle install`
+3. Next, you should run the command `shotgun --port=9292`, launching the server on your local host.
+4. After that, in another terminal, navigate to the frontend folder and run `npm install`.
+5. Once that completes you can run npm start to view the site itself.
 
-**Start your server with:**
+## How to Use
 
-```sh
-shotgun --port=9292
-```
+The Home page is simply a landing zone that does not have much at this point in time, though there is a link to the Categories page where you can see a list of various
+categories of games.
 
-> **Note:** This will run your server on port
-> [http://localhost:9292](http://localhost:9292).
-> [shotgun](https://github.com/rtomayko/shotgun) is a ruby gem that will
-> automatically reload your Rack server. You may still need to refresh your
-> browser to see changes.
+Selecting one of these categories by clicking on the title or image will bring you to that Genre's respective page with it's own list of games, or, if you want to create your own category, there is a button at the bottom of the page where you can upload an image and title of your choosing.
 
-Your backend and your frontend should be in two different repositories. Create a
-new repository in a separate folder with a React app for your frontend using
-[create-react-app][].
+Within each category there is a list of games that have been put in there so far (Plans to soon have them auto sort alphabetically and implement a search function), and each game's name will link you to a google search of that game, so you can look up information, art, or news all the faster.
 
-### Fetch Example
 
-Your React app should make fetch requests to your Rack backend! Here's an
-example:
-
-```js
-fetch("http://localhost:9292/test")
-  .then((res) => res.json())
-  .then(console.log);
-```
-
-[create-react-app]: https://create-react-app.dev/docs/getting-started
+Thank you for checking out my project!

@@ -73,7 +73,7 @@ class Genres extends Component {
                             imageSrc={this.state.imageSrc}
                             genreFormFlag={this.state.genreFormFlag}
                             toggleGenreFormFlag={this.toggleGenreFormFlag}
-                            deleteGenre={this.deleteGenre}
+                            deleteThisGenre={this.deleteGenre}
                         />
                         <br/>
                     </div>

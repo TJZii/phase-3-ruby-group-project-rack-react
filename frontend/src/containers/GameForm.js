@@ -20,6 +20,9 @@ class GameForm extends Component {
     render() {
         return (
             <div>
+                <h2>{props.game.name}</h2>
+                {/* {gameEditorFlag ? <GameEditor game={games.game} toggleForm={() => setGameEditorFlag(false) } editThisGame={games.editThisGame}/> : <button onClick={() => setGameEditorFlag(true)}>Game Settings</button>} */}
+                <button onChange={props.deleteThisGame(props.game.id)}>Delete</button>
                 <form onSubmit={this.handleSubmit}>
                     <label>Name</label>
                     <br/>
