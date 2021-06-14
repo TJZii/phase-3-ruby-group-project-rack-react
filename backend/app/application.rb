@@ -10,7 +10,7 @@ class Application
     elsif req.path.match(/games/)
       if req.env["REQUEST_METHOD"] == "POST"
         input = JSON.parse(req.body.read)
-        genre_id = req.path.split('/genres/').last.split('/games/').first
+        genre_id = req.path.split('/genres/').last.split('/games').last
         genre = Genre.find_by(id: genre_id)
         game = genre.games.create(name: input["name"])
         return [200, { 'Content-Type' => 'application/json' }, [game.to_json ]]
@@ -28,6 +28,8 @@ class Application
         return [200, { 'Content-Type' => 'application/json' }, [ Game.all.to_json ]]
       end
 
+
+
     elsif req.path.match(/genres/)
       if req.env["REQUEST_METHOD"] == "POST"
         input = JSON.parse(req.body.read)
@@ -44,15 +46,15 @@ class Application
         genre_id = req.path.split('/genre/').last
         Genre.destroy(genre_id)
       else
-        if req.path.split('/genre').length == 0
-          return [200, { 'Content-Type' => 'application/json' }, [ Genre.all.to_json ]]
-        else 
-          genre_id = req.path.split('/genre/').last 
-          return [200, { 'Content-Type' => 'application/json' }, [ Genre.find_by(id: genre_id).to_json({:include => :games}) ]]
+        if req.path.split("/genres/").length == 1
+          return [200, { 'Content-Type' => 'application/json' }, [Genre.all.to_json ]]
+        else
+          genre_id = req.path.split("/genres/").last
+          return [200, { 'Content-Type' => 'application/json' }, [Genre.find_by(id: genre_id).to_json({:include => :games}) ]]
         end
       end
 
-
+      
     else
       resp.write "Path Not Found"
 
