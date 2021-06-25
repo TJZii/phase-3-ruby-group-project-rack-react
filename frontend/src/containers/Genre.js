@@ -60,9 +60,9 @@ class Genre extends Component {
 
     deleteGame = (gameId) => {
         fetch(`http://localhost:9292/games/${gameId}`, {
-                method: "DELETE",
-                headers: {
-                'Content-type': 'application/json'
+            method: "DELETE",
+            headers: {
+            'Content-type': 'application/json'
             }
         })
         .then(res => res.json())

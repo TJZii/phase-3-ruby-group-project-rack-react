@@ -14,6 +14,9 @@ class CategoryLink extends Component {
                 </figure>
                 <br/>
             </Link>
+            <div>
+            <button onClick={() => {this.props.deleteGenre(this.props.genre.id)}}>Delete</button>
+            </div>
         </div>
     )}
 }

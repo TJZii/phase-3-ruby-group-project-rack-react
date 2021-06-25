@@ -25,7 +25,7 @@ class GenreForm extends Component{
             return (
                 <div>
                     <ul>
-                        {this.genresList = this.props.genresList.map(g => <CategoryLink key={g.id} deleteGenre={this.deleteGenre} genre={g}/>)}
+                        {this.genresList = this.props.genresList.map(g => <CategoryLink key={g.id} deleteGenre={this.props.deleteThisGenre} genre={g}/>)}
                     </ul>
                     <form onSubmit={this.handleSubmit}>
                         <label>Name</label>
@@ -46,7 +46,7 @@ class GenreForm extends Component{
             return (
                 <div>
                     <ul>
-                        {this.genresList = this.props.genresList.map(g => <CategoryLink key={g.id} deleteGenre={this.deleteGenre} genre={g}/>)}
+                        {this.genresList = this.props.genresList.map(g => <CategoryLink key={g.id} deleteGenre={this.props.deleteThisGenre} genre={g}/>)}
                     </ul>
                     <button onClick={this.props.toggleGenreFormFlag}>New Genre</button>
                 </div>

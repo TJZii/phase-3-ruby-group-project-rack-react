@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import SearchBar from '../components/SearchBar';
+import SearchBar from './SearchBar';
 import ListOfGames from './ListOfGames';
 
 class AllGames extends Component {
@@ -15,7 +15,7 @@ class AllGames extends Component {
 
     handleSearchChange = (event) => {
         this.setState({searchTerm: event.target.value})
-        console.log(`${this.state.searchTerm}`);
+        // console.log(`${this.state.searchTerm}`);
     }
 
     deleteGame = (deleter) => {
@@ -26,16 +26,15 @@ class AllGames extends Component {
             'Content-type': 'application/json'
          }
         })
-        // .then(res => res.json())
-        // .then(res => console.log(res))
-        .then(console.log(this.state))
+        // .then(console.log(this.state))
         .then(this.updateSearch(deleter.target.value))
         .catch(error => console.log(error))
     }
 
     updateSearch = (deleteId) => {
         console.log(deleteId)
-        this.setState({...this.state, theseGames: this.state.theseGames.filter(game => game.id !== deleteId), searchTerm: this.state.searchTerm})
+        let updatedGames = this.state.theseGames.filter(game => `${game.id}` !== deleteId)
+        this.setState({...this.state, theseGames: updatedGames})
         console.log(this.state.theseGames)
     }
 

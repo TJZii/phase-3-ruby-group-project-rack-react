@@ -25,7 +25,6 @@ class Application
     elsif req.path.match(/allGames/)
       if req.env['REQUEST_METHOD'] == 'DELETE'
         game_id = req.path.split('/games/').last
-        console.log(game_id)
         Game.destroy(game_id)
       else
         return [200, { 'Content-Type' => 'application/json' }, [ Game.all.to_json ]]
@@ -38,7 +37,7 @@ class Application
         genre = Genre.create(name: input["name"], imageSrc: input["imageSrc"])
         return [200, { 'Content-Type' => 'application/json' }, [genre.to_json ]]
       elsif req.env['REQUEST_METHOD'] == 'DELETE'
-        genre_id = req.path.split('/genre/').last
+        genre_id = req.path.split('/genres/').last
         Genre.destroy(genre_id)
       else
         if req.path.split("/genres/").length == 1

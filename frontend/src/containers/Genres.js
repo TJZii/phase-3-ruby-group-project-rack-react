@@ -47,7 +47,6 @@ class Genres extends Component {
         fetch(`http://localhost:9292/genres/${genreId}`, {
             method: "DELETE",
         })
-        .then(res => res.json())
         .then(this.updateState(genreId))
         .catch(error => console.log(error))
     }
