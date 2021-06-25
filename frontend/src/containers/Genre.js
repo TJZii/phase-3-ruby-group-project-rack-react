@@ -85,10 +85,10 @@ class Genre extends Component {
             <img src={this.state.genreImg} alt={this.state.genreName} className='Icon' width="350" height="350"/>
             <hr/>
             <br/>
+            {this.state.gameFormFlag ? <GameForm addNewGame={this.addGame} genre={this.state.genreName}/> : <button onClick={() => this.setState({gameFormFlag: true})}>Add Game</button>}
+            <br/>
             <h2>Games:</h2>
             {this.state.games.map(ga => <Game key={ga.id} game={ga} editThisGame={this.editGame} deleteThisGame={this.deleteGame}/>).sort()}
-            <br/>
-            {this.state.gameFormFlag ? <GameForm addNewGame={this.addGame} genre={this.state.genreName}/> : <button onClick={() => this.setState({gameFormFlag: true})}>Add Game</button>}
         </div>
     )}
     

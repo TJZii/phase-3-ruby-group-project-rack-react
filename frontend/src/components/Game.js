@@ -11,4 +11,4 @@ class Game extends Component{
     )}
 }
 
-export default Game;
+export default Game; 
